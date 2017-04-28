@@ -5,12 +5,10 @@ public class Tema1 {
 		// TODO Auto-generated method stub
 		String t = "[return , [+ [* [return [assert [; [== x";
 		String[] tokens = t.split(" ");
-		
 		String string = "[+ 1 [* 3 2] ]";
 		
-		for (String str : tokens){
-			System.out.println(Symbols.indexOf(str));
-		}
+		Expression expresion_parser = new Expression(string);
+		
 	}
 
 }

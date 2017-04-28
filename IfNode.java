@@ -6,8 +6,6 @@ public class IfNode extends Node {
 		// TODO Auto-generated constructor stub
 	}
 
-	Node left;
-	Node right;
 
 	public void accept(NodeVisitor visitor) {
 		
