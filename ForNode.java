@@ -1,17 +1,21 @@
 
 public class ForNode extends Node {
 	
-	ForNode(String[] args) {
-		super(args);
+	ForNode() {
+		super(4);
 		// TODO Auto-generated constructor stub
 	}
 
-	Node left;
-	Node right;
-
-	public void accept(NodeVisitor visitor) {
+	@Override
+	int accept(NodeVisitorWorker visitor) {
 		// TODO Auto-generated method stub
-
+		if (visitor.flags[0] == 0){
+			return visitor.visit(this);
+		}
+		return 0;
 	}
+
+
+
 
 }

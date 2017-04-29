@@ -1,49 +1,33 @@
 
 public class NodeFactory {
 	
-	static Node createNode (String type, String[] listOfArguments){
-		for (String str : listOfArguments){
-			System.out.print(str + " ");
-		}
-		System.out.println();
+	static Node createNode (String type){
 		int typeToInt = Symbols.indexOf(type);
-		Node t;
+		System.out.println(typeToInt);
 		switch (typeToInt){
 			case 0:
-				t =  new AddNode(listOfArguments);
-				break;
+				return new AddNode();
 			case 1:
-				t = new MultiplyNode(listOfArguments);
-				break;
+				return new MultiplyNode();
 			case 2:
-				t = new EqualsNode(listOfArguments);
+				return new EqualsNode();
 			case 3:
-				t = new LessNode(listOfArguments);
-				break;
+				return new LessNode();
 			case 4:
-				t = new IfNode(listOfArguments);
-				break;
+				return new IfNode();
 			case 5:
-				t = new ForNode(listOfArguments);
-				break;
+				return new ForNode();
 			case 6:
-				t = new AssertNode(listOfArguments);
-				break;
+				return new AssertNode();
 			case 7:
-				t = new AssignNode(listOfArguments);
-				break;
+				return new AssignNode();
 			case 8:
-				t = new ReturnNode(listOfArguments);
-				break;
+				return new ReturnNode();
 			case 9:
-				t = new NothingNode(listOfArguments);
-				break;
+				return new NothingNode();
 			default:
-				t = null;
-				return t;
+				return new ArgumentNode();
 		}
-		t.setParameters(listOfArguments);
-		return t;
 
 	}
 	

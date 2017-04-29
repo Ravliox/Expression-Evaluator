@@ -1,16 +1,21 @@
 
 public class IfNode extends Node {
 	
-	IfNode(String[] args) {
-		super(args);
+	IfNode() {
+		super(3);
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public void accept(NodeVisitor visitor) {
-		
+	@Override
+	int accept(NodeVisitorWorker visitor) {
 		// TODO Auto-generated method stub
-
+		if (visitor.flags[0] == 0){
+			return visitor.visit(this);
+		}
+		return 0;
 	}
+
+
+
 
 }
