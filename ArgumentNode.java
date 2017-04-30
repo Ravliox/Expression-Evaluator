@@ -1,3 +1,9 @@
+/**
+ * Leaf used for the symbols and the value.
+ * @author magni
+ *
+ */
+
 public class ArgumentNode extends Node {
 			
 	public ArgumentNode() {

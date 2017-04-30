@@ -1,8 +1,20 @@
+/**
+ * 
+ * @author magni
+ * class to hold constant string of indexes for our operators.
+ * to be used when determining which type of node should be created
+ */
 
 public class Symbols {
 	
 	final static String[] symbols = new String[20];
 	
+	
+	/**
+	 * return the index of the given type, eg: for has index 5
+	 * @param str, the type of node we want to creeate
+	 * @return the index of the type of node
+	 */
 	static public int indexOf (String str){
 		symbols[0] = "+";
 		symbols[1] = "*";

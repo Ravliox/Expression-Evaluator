@@ -1,3 +1,9 @@
+/**
+ * Node used for addition of two values
+ * @author magni
+ *
+ */
+
 
 public class AddNode extends Node{
 	

@@ -1,3 +1,9 @@
+/**
+ * Node used for assertion of a boolean expression
+ * @author magni
+ *
+ */
+
 
 public class AssertNode extends Node {
 	

@@ -1,4 +1,8 @@
- 
+/**
+ * Node used for assigning value to a symbol 
+ * @author magni
+ *
+ */
 public class AssignNode extends Node {
 
 	AssignNode() {

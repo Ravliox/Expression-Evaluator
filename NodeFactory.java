@@ -1,6 +1,17 @@
-
+/**
+ * Node implementing the factory design pattern for quick and reliant generation of nodes
+ * @author magni
+ *
+ */
 public class NodeFactory {
 	
+	/**
+	 * Node generator
+	 * uses indexOf method from Symbols
+	 * @param type operator read from file
+	 * @return Node created based on the index of the operator read in the Symbols.symbols array
+	 * by default it returns an argument leaf
+	 */
 	static Node createNode (String type){
 		int typeToInt = Symbols.indexOf(type);
 		switch (typeToInt){

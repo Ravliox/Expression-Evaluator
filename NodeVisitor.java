@@ -1,4 +1,8 @@
-
+/**
+ * Visitor interface
+ * @author magni
+ *
+ */
 public interface NodeVisitor {
 	public abstract int visit (AddNode addNode);
 	public abstract int visit (ArgumentNode argNode);
