@@ -10,6 +10,7 @@ public class Expression {
 	Node tree;
 	
 	Expression (String line_read){
+		System.out.println(line_read);
 		Stack<Node> arguments = new Stack<Node>();
 		
 		String [] tokens = line_read.split("[\\s\\[\\]]+");
@@ -46,16 +47,20 @@ public class Expression {
 		NodeVisitorWorker visitor = NodeVisitorWorker.getInstance();
 		tree.accept(visitor);
 		if (visitor.flags[0] == 1){
-			out.println("Check failed");
+			System.out.println("CHECK FAILED");
+			out.print("Check failed");
 		}
 		else if (visitor.flags[2] == 0){
-			out.println("Missing return");
+			System.out.println("MISSING RETURN");
+			out.print("Missing return");
 		}
 		else if (visitor.flags[1] == 1){
-			out.println("Assert failed");
+			System.out.println ("Assert failed");
+			out.print("Assert failed");
 		}
 		else{
-			out.println (visitor.return_value);
+			System.out.println(visitor.return_value);
+			out.print(visitor.return_value);
 		}
 		
 	}

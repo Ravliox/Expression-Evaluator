@@ -3,7 +3,6 @@ public class NodeFactory {
 	
 	static Node createNode (String type){
 		int typeToInt = Symbols.indexOf(type);
-		System.out.println(typeToInt);
 		switch (typeToInt){
 			case 0:
 				return new AddNode();

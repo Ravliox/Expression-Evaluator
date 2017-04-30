@@ -4,15 +4,23 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Tema {
+public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader reader = new BufferedReader (new FileReader (args[0]));
 		PrintWriter out = new PrintWriter(args[1]);
+		String linie = "";
+		String token = " ";
 		
-		Expression expresion_parser = new Expression(reader.readLine());
+		while (token != null){
+			token = reader.readLine();
+			linie = linie + token; 
+		}
+						
+		Expression expresion_parser = new Expression(linie);
 		expresion_parser.evaluate(out);
+		out.close();
 		
 		
 	}

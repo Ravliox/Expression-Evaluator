@@ -15,13 +15,6 @@ public class NodeVisitorWorker implements NodeVisitor {
 
 	@Override
 	public int visit(AddNode addNode) {
-//			if (visitor.visit((ArgumentNode)arguments.get(0)).equals("e") ||
-//					visitor.visit((ArgumentNode)arguments.get(1)).equals("e")){
-//				visitor.flags[0] = 1;
-//				return -1;
-//			}
-//			int x1 = Integer.parseInt(visitor.visit((ArgumentNode)arguments.get(0)));
-//			int x2 = Integer.parseInt(visitor.visit((ArgumentNode)arguments.get(1)));
 		if (flags[0] == 0){
 			int x1 = addNode.arguments.get(0).accept(this);
 			int x2 = addNode.arguments.get(1).accept(this);
@@ -32,7 +25,6 @@ public class NodeVisitorWorker implements NodeVisitor {
 
 	@Override
 	public int visit(ArgumentNode argNode) {
-		// TODO Auto-generated method stub
 		if (isNumeric(argNode.value)){
 			return Integer.parseInt(argNode.value);
 		}
@@ -46,7 +38,6 @@ public class NodeVisitorWorker implements NodeVisitor {
 
 	@Override
 	public void visit(AssignNode assignNode) {
-		// TODO Auto-generated method stub
 		ArgumentNode sym = (ArgumentNode)assignNode.arguments.get(0);
 		int value = assignNode.arguments.get(1).accept(this);
 		String valueToString = "" + value;
@@ -57,7 +48,6 @@ public class NodeVisitorWorker implements NodeVisitor {
 	
 	@Override
 	public boolean visit(AssertNode assertNode) {
-		// TODO Auto-generated method stub
 		if (assertNode.arguments.get(0).accept(this) > 0){
 			return true;
 		}
