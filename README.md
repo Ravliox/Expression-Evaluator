@@ -29,4 +29,33 @@ MultiplyNode idem mai sus doar ca le va inmulti.
 LessNode, EqualsNode, idem mai sus doar ca le compara corespunzator. 
 
 AssignNode, va lua simbolul direct din primul argument, deoarece accept pe acesta va verifica daca exista in tabela de valori deja ceea
-ce s-ar putea sa dea eroare. Apoi va lua valoarea data de accept pe al doilea argument (pentru a putea face asignari de genul x = x + 1
+ce s-ar putea sa dea eroare. Apoi va lua valoarea data de accept pe al doilea argument (pentru a putea face asignari de genul x = x + 1) si le va introduce in tabela de valori.
+
+AssertNode, visit pe acest nod va lua valoarea data de acceptul pe copilul lui si verifica daca este 0 sau 1.
+
+IfNode, va verifica valoarea data de accept pe primul argument, care este conditia. Daca este 1, atunci se va da accept pe al doilea 
+argument. Daca este 0, atunci se va da accept pe al treilea argument. Accept pe aceste argumente le vor rula normal.
+
+ForNode, va da accept pe primul argument, ce va fi un AssignNode si va construi un while. Cat timp accept pe conditia data de al 
+doilea argument va fi adevarata, se vor da accept pe al treilea argument (incrementarea) si pe al patrulea argument.
+
+ReturnNode, va seta valoarea de return_value din visitor cu valoarea data de accept pe copilul acestuia. Valoarea aceasta va fi scrisa 
+la finalul programului in fisier in Expression.
+
+NothingNode, este nodul pentru secventa pe program. Acceptul acestuia va da accept pe toate nodurile din lista de copii.
+
+Pentru tratarea erorilor se foloseste un array de 3 elemente cu flaguri.
+
+Pentru Check failed, daca se face accept pe un ArgumentNode ce contine un simbol, iar acesta nu este gasit ca si cheie in HashMapul 
+valueTable, atunci vom seta flags[0] cu 1. De asemenea nu are rost sa se mai face vreo operatie dupa acest Check Failed asa ca nu se 
+va apela nici un accept sau visit daca acest flag este 1.
+
+Pentru Assert Failed, cand se va intalni un assert a carui visit pe acesta va returna 0, flag[1] va fi setat la 1. Executia 
+programului va continua neintrupta, deoare trebuie verifica si missing return inainte de Assert Failed si pentru aceasta va trebui sa
+se ajunga la finalul programului.
+
+Pentru Missing Return, se va verifica daca flags[2] este 0. In visit(ReturnNode), flagul lui visitor este setat la 1, si valoarea de 
+return setata. Daca se va ajunge la finalul programului si flags[2] este 0, atunci nu s-a ajuns niciodata in visit(ReturnNode), deci nu a existat unul in program.
+
+La finalul acceptului treeului mare, se va verifica pe rand fiecare dintre aceste flaguri ale visitorului in ordinea prioritatii lor, 
+si se scrie mesajul corespunzator daca exista eroare sau valoarea daca nu exista erori.  
