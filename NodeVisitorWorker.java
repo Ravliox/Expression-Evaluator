@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class NodeVisitorWorker implements NodeVisitor {
 	HashMap<String, String> valueTable = new HashMap<String, String>();		// holds the values of the assigned symbols
 	private static NodeVisitorWorker worker;
-	int[] flags = new int[3];												// error flags
+	int[] flags = new int[3];							// error flags
 	int return_value;														// value to be returned if we have a return
 	
 	public static NodeVisitorWorker getInstance() {
